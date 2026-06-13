@@ -65,22 +65,27 @@ export default function VideoPlayer({ isOpen, onClose, videoUrl, title }: VideoP
   return (
     <>
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4" onClick={onClose}>
-        <div className="relative w-full max-w-4xl aspect-video" onClick={(e) => e.stopPropagation()}>
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
-            aria-label="Close video"
-          >
-            <X size={32} />
-          </button>
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-3 sm:p-4"
+        onClick={onClose}
+      >
+        <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+          <div className="mb-3 flex items-start justify-between gap-4 text-white">
+            {/* Video Title */}
+            <h3 className="line-clamp-2 text-base font-medium sm:text-lg">{title}</h3>
 
-          {/* Video Title */}
-          <h3 className="absolute -top-12 left-0 text-white text-lg font-medium">{title}</h3>
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="shrink-0 text-white transition-colors hover:text-gray-300"
+              aria-label="Close video"
+            >
+              <X size={30} />
+            </button>
+          </div>
 
           {/* Video Player */}
-          <div className="w-full h-full bg-black rounded-lg overflow-hidden relative">
+          <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-black">
             {/* Loading State */}
             {isLoading && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
