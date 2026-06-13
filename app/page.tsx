@@ -21,15 +21,25 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Hero Section */}
-      <div className="min-h-[100svh] bg-gray-900 lg:flex">
+      <div className="relative min-h-[100svh] overflow-hidden bg-gray-900 lg:flex lg:overflow-visible">
+        <div className="absolute inset-0 lg:hidden">
+          <img
+            src="/images/optimized/hero/joicy-portrait-hero.webp"
+            alt="Joicy Yang - Professional dancer and choreographer portrait"
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-teal-900/90 via-teal-800/45 to-black/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
+        </div>
+
         {/* Left Section - Teal Background */}
-        <div className="relative bg-teal-700 lg:flex-1">
-          <div className="flex min-h-[48svh] flex-col px-5 py-6 sm:p-8 lg:min-h-screen">
+        <div className="relative z-10 lg:flex-1 lg:bg-teal-700">
+          <div className="flex min-h-[100svh] flex-col px-5 py-6 sm:p-8 lg:min-h-screen">
             {/* Header */}
             <SiteHeader activePage="home" onResumeClick={() => setIsResumeOpen(true)} variant="hero" />
 
             {/* Hero Content */}
-            <div className="flex flex-1 flex-col justify-center py-12 sm:py-16 lg:py-0">
+            <div className="flex flex-1 flex-col justify-end pb-16 pt-20 sm:justify-center sm:pb-0 lg:py-0">
               <div className="max-w-lg">
                 <h2 className="mb-4 text-4xl font-light leading-tight sm:text-6xl">
                   <span className="text-yellow-400">Hey, I'm</span>
@@ -43,11 +53,11 @@ export default function Home() {
         </div>
 
         {/* Right Section - Photo */}
-        <div className="relative h-[56svh] min-h-[380px] bg-gray-800 sm:h-[64svh] lg:h-[100svh] lg:min-h-0 lg:flex-1">
+        <div className="relative hidden bg-gray-800 lg:block lg:h-[100svh] lg:min-h-0 lg:flex-1">
           <img
             src="/images/optimized/hero/joicy-portrait-hero.webp"
             alt="Joicy Yang - Professional dancer and choreographer portrait"
-            className="h-full w-full object-contain object-center lg:object-cover"
+            className="h-full w-full object-cover object-center"
           />
         </div>
 
